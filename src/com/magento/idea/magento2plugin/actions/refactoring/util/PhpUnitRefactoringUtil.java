@@ -17,6 +17,7 @@ import com.jetbrains.php.lang.psi.elements.PhpClass;
 import com.jetbrains.php.lang.psi.elements.PhpNamedElement;
 import com.jetbrains.php.lang.psi.elements.PhpPsiElement;
 import com.magento.idea.magento2plugin.actions.refactoring.CouldNotRefactorException;
+import com.magento.idea.magento2plugin.actions.refactoring.php.EliminateAtMethodAction;
 import com.magento.idea.magento2plugin.actions.refactoring.php.RenameCalledMethodAction;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,6 +33,7 @@ public final class PhpUnitRefactoringUtil {
 
     private final PhpClass phpClass;
     private final RenameCalledMethodAction renameCalledMethodAction;
+    private final EliminateAtMethodAction eliminateAtMethodAction;
 
     /**
      * Refactoring util constructor.
@@ -45,10 +47,12 @@ public final class PhpUnitRefactoringUtil {
                 "setMethods",
                 getNameResolver()
         );
+        eliminateAtMethodAction = new EliminateAtMethodAction(phpClass);
     }
 
     public void fixDeprecatedMethods() {
         renameCalledMethodAction.refactor();
+        eliminateAtMethodAction.refactor();
     }
 
     private RenameCalledMethodAction.MethodReferenceNameRefactoringResolver getNameResolver() {
