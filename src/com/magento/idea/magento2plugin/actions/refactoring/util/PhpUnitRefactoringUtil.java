@@ -121,6 +121,13 @@ public final class PhpUnitRefactoringUtil {
                 throw new CouldNotRefactorException();
             }
             final PhpIndex phpIndex = PhpIndex.getInstance(reference.getProject());
+
+            if (mockedClassFqn.endsWith("Factory")) {
+                mockedClassFqn = mockedClassFqn.substring(
+                        0,
+                        mockedClassFqn.length() - "Factory".length()
+                );
+            }
             final Iterator<PhpClass> classCandidateIterator =
                     new ArrayList<>(phpIndex.getAnyByFQN(mockedClassFqn))
                             .stream().iterator();
