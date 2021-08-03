@@ -105,6 +105,9 @@
         <action id="PhpUnitTestRefactorAction.Menu" class="com.magento.idea.magento2plugin.actions.refactoring.PhpUnitTestRefactorAction">
             <add-to-group group-id="RefactoringMenu"/>
         </action>
+        <action id="PhpUnitMultipleTestsRefactorAction.Menu" class="com.magento.idea.magento2plugin.actions.refactoring.PhpUnitMultipleTestsRefactorAction">
+            <add-to-group group-id="RefactoringMenu"/>
+        </action>
 
         <action id="CopyMagentoPath"
                 class="com.magento.idea.magento2plugin.actions.CopyMagentoPath"

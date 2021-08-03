@@ -8,7 +8,6 @@ package com.magento.idea.magento2plugin.actions.refactoring;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
-import com.intellij.psi.PsiDirectory;
 import com.jetbrains.php.PhpClassHierarchyUtils;
 import com.jetbrains.php.PhpIndex;
 import com.jetbrains.php.lang.psi.elements.ClassReference;
@@ -23,7 +22,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class PhpUnitTestRefactorAction extends AnAction {
 
-    public static final String ACTION_NAME = "Refactor PHPUnit Tests";
+    public static final String ACTION_NAME = "Refactor PHPUnit Tests In File";
     public static final String ACTION_DESCRIPTION =
             "Refactor PHPUnit class to be compatible with the PHPUnit v9.3.0";
     private static final String BASE_TEST_CLASS_FQN = "\\PHPUnit\\Framework\\TestCase";
@@ -72,10 +71,7 @@ public class PhpUnitTestRefactorAction extends AnAction {
 
     @Override
     public void actionPerformed(final @NotNull AnActionEvent event) {
-        final PsiDirectory directory =
-                phpUnitClass.getContainingFile().getContainingDirectory();
-
-        if (event.getProject() == null || directory == null) {
+        if (event.getProject() == null || phpUnitClass == null) {
             return;
         }
 

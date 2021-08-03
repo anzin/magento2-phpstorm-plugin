@@ -6,7 +6,6 @@
 package com.magento.idea.magento2plugin.actions.refactoring.php;
 
 import com.intellij.openapi.command.WriteCommandAction;
-import com.intellij.openapi.util.Pair;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.jetbrains.php.lang.psi.PhpPsiElementFactory;
 import com.jetbrains.php.lang.psi.elements.FieldReference;
@@ -16,7 +15,6 @@ import com.jetbrains.php.lang.psi.elements.PhpClass;
 import com.jetbrains.php.lang.psi.elements.Statement;
 import com.jetbrains.php.lang.psi.elements.Variable;
 import com.jetbrains.php.lang.psi.visitors.PhpElementVisitor;
-import com.magento.idea.magento2plugin.actions.refactoring.CouldNotRefactorException;
 import com.magento.idea.magento2plugin.actions.refactoring.util.PhpRefactoringUtil;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,8 +23,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-
 import org.jetbrains.annotations.NotNull;
 
 public class EliminateAtMethodAction implements RefactoringAction {
