@@ -146,6 +146,9 @@
         <action id="MagentoCompareTemplate.Menu" class="com.magento.idea.magento2plugin.actions.comparator.CompareTemplateAction">
             <add-to-group group-id="EditorPopupMenu"/>
         </action>
+        <action id="MagentoCompareModuleTemplate.Menu" class="com.magento.idea.magento2plugin.actions.comparator.CompareModuleTemplateAction">
+            <add-to-group group-id="EditorPopupMenu"/>
+        </action>
 
         <action id="CopyMagentoPath"
                 class="com.magento.idea.magento2plugin.actions.CopyMagentoPath"
